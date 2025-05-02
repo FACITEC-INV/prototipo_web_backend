@@ -1,4 +1,4 @@
-package py.edu.facitec.pinv01_267.pinv01_267_ws.controllers;
+package py.edu.facitec.pinv01_267.pinv01_267_ws.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,12 +14,11 @@ public class SecuriryConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
-      .csrf(csrf -> csrf.disable())
-      .authorizeHttpRequests(auth -> auth
-        .requestMatchers("/api/**").permitAll()
-        .anyRequest().authenticated()
-      )
-      .httpBasic(Customizer.withDefaults());
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/api/**").permitAll()
+            .anyRequest().authenticated())
+        .httpBasic(Customizer.withDefaults());
 
     return http.build();
   }
