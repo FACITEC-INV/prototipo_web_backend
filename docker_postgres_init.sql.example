@@ -1,0 +1,18 @@
+-- Cambiar los {...} por los valores agregados en el .env
+
+-- Base de datos
+CREATE DATABASE {DB_NAME}
+  WITH OWNER = postgres
+  ENCODING = 'UTF8'
+  LC_COLLATE = 'es_ES.UTF-8'
+  LC_CTYPE = 'es_ES.UTF-8'
+  TEMPLATE = template0;
+
+-- Rol de usuario
+CREATE ROLE {DB_USER} WITH LOGIN PASSWORD {DB_USER_PASSWORD};
+
+-- Cambiar el dueño de la base de datos
+ALTER DATABASE {DB_NAME} OWNER TO {DB_USER};
+
+-- Privilegios
+GRANT ALL PRIVILEGES ON DATABASE {DB_NAME} TO {DB_USER};

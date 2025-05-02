@@ -1,3 +1,10 @@
+### Otros
+*.env
+*.sql
+*/**/*.sql
+curl_requests/
+
+### Default
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
