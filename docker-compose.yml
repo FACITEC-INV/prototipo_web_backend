@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   db:
-    container_name: db_pinv01_267
+    container_name: ${CONTAINER_NAME}
     image: postgres:16-alpine3.20
     restart: always # no=reinicio manual | always=reinicio automático
     env_file:

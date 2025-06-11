@@ -22,4 +22,5 @@ public class Suscripcion {
   @Column(nullable = false, unique = true)
   private String correo;
   private String organizacion;
+// TODO: Agregar estado
 }
