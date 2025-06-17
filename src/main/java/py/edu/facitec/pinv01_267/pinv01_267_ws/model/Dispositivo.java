@@ -10,18 +10,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "dispositivos")
 public class Dispositivo {
-
-  @NonNull
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
@@ -32,5 +25,6 @@ public class Dispositivo {
   @Column(nullable = false)
   private int intervaloActualizacion;
   private LocalDateTime ultimaConexion;
+  
 
 }

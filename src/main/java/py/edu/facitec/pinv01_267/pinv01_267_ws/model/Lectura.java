@@ -12,10 +12,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "lecturas")
 public class Lectura {
@@ -34,17 +32,5 @@ public class Lectura {
   private double tur;
   private double tem;
   private LocalDateTime fecha;
-
-  public Lectura(Dispositivo dispositivo, double ph, double od, double con, double tsd, double tur, double tem,
-      LocalDateTime fecha) {
-    this.dispositivo = dispositivo;
-    this.ph = ph;
-    this.od = od;
-    this.con = con;
-    this.tsd = tsd;
-    this.tur = tur;
-    this.tem = tem;
-    this.fecha = fecha;
-  }
 
 }

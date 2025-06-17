@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class LecturasReveicedDto {
 
-  private String dispositivo_id;
+  private String dispositivoId;
   private List<LecturaDto> lecturas;
 
 }
