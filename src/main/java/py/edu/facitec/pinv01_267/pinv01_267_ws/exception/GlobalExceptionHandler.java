@@ -2,6 +2,7 @@ package py.edu.facitec.pinv01_267.pinv01_267_ws.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.ResponseDto;
 
@@ -24,6 +25,16 @@ public class GlobalExceptionHandler {
         ResponseDto.<String>builder()
             .success(false)
             .response(ex.getMessage())
+            .build()
+    );
+  }
+
+  @ExceptionHandler(BadCredentialsException.class)
+  public ResponseEntity<ResponseDto<String>> handleBadRequest(BadCredentialsException ex) {
+    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+        ResponseDto.<String>builder()
+            .success(false)
+            .response("Credenciales incorrectas")
             .build()
     );
   }

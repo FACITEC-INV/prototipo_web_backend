@@ -18,9 +18,9 @@ public class Dispositivo {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
-  @Column(nullable = false, unique = true)
-  private String rio;
   @Column(nullable = false)
+  private String rio;
+  @Column(nullable = false,unique = true)
   private String ubicacion;
   @Column(nullable = false)
   private int intervaloActualizacion;

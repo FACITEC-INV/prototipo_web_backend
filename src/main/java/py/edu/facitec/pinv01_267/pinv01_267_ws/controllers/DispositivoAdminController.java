@@ -16,8 +16,8 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.ResponseDto;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.DispositovoService;
 
 @RestController
-@RequestMapping(path = "/api/dispositivos")
-public class DispositivoController {
+@RequestMapping(path = "/api/admin/dispositivos")
+public class DispositivoAdminController {
 
     @Autowired
     private DispositovoService dispSer;
