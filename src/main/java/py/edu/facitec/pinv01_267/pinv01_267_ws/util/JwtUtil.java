@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.UserDto;
 
 @Component
 public class JwtUtil {
@@ -20,9 +21,11 @@ public class JwtUtil {
     @Value("${jwt.expiration}")
     private long expirationMs;
 
-    public String generateToken(String username) {
+    public String generateToken(UserDto userDto) {
         return Jwts.builder()
-                .subject(username)
+                .subject(userDto.getUsername())
+                .claim("fullname", userDto.getFullName())
+                .claim("rol", userDto.getRol())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + expirationMs))
                 .signWith(getSecretKey())
