@@ -1,14 +1,12 @@
 package py.edu.facitec.pinv01_267.pinv01_267_ws.sevices;
 
 import java.util.UUID;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import lombok.NoArgsConstructor;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.LecturaDto;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.LecturasReveicedDto;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.exception.BadRequestException;
@@ -16,15 +14,16 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.model.Dispositivo;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.model.Lectura;
 
 @Service
-@NoArgsConstructor
-public class LecturaService {
+public class LecturaService extends BaseService<Lectura, LecturaDto>{
 
   @PersistenceContext
   EntityManager entity;
   @Autowired
-  private DispositovoService dispSer;
-  @Autowired
-  private ModelMapper modelMapper;
+  private DispositovoAdminService dispSer;
+
+  public LecturaService() {
+    super(Lectura.class, LecturaDto.class);
+  }
 
   // TODO: enviar la fecha de la última lectura para sincronización
 
@@ -40,7 +39,7 @@ public class LecturaService {
     int BATCH_SIZE = 50;
     int iteration = 0; 
     for (LecturaDto lecDto : lecReq.getLecturas()) {
-      Lectura lec = modelMapper.map(lecDto, Lectura.class);
+      Lectura lec = convertToEntity(lecDto);
       lec.setDispositivo(disp);
       entity.persist(lec);
       iteration++;

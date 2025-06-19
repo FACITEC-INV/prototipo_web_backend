@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
-public class DispositivoDto {
+public class DispositivoAdminDto {
+    private String id;
     private String rio;
     private String ubicacion;
+    private int intervaloActualizacion;
     private LocalDateTime ultimaConexion;
 }

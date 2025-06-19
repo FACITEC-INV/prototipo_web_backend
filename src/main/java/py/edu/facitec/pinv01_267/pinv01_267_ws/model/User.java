@@ -1,9 +1,10 @@
 package py.edu.facitec.pinv01_267.pinv01_267_ws.model;
 
 import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
@@ -29,10 +30,11 @@ public class User implements UserDetails{
     private String username;
     @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
+    private String rol; // 'ROOT' o 'USER'
     
-    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList(); 
+        return List.of(new SimpleGrantedAuthority("ROLE_" + rol));
     }
 
     @Override

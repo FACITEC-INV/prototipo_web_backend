@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.UserService;
 
 @RestController
 @RequestMapping("/api/admin/users")
+@PreAuthorize("hasRole('ROOT')")
 public class UserController {
 
     @Autowired

@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.DispositivoDto;
+import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.DispositivoAdminDto;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.ResponseDto;
-import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.DispositovoService;
+import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.DispositovoAdminService;
 
 @RestController
 @RequestMapping(path = "/api/admin/dispositivos")
 public class DispositivoAdminController {
 
     @Autowired
-    private DispositovoService dispSer;
+    private DispositovoAdminService dispSer;
 
     @GetMapping("/all")
-    public ResponseEntity<ResponseDto<List<DispositivoDto>>> getAll() {
-        List<DispositivoDto> result = dispSer.findAll();
+    public ResponseEntity<ResponseDto<List<DispositivoAdminDto>>> getAll() {
+        List<DispositivoAdminDto> result = dispSer.findAll();
         return ResponseEntity.ok(
-            ResponseDto.<List<DispositivoDto>>builder()
+            ResponseDto.<List<DispositivoAdminDto>>builder()
                 .success(true)
                 .response(result)
                 .build()
@@ -34,10 +34,10 @@ public class DispositivoAdminController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<ResponseDto<DispositivoDto>> get(@PathVariable String id) {
-        DispositivoDto result = dispSer.getById(id);
+    public ResponseEntity<ResponseDto<DispositivoAdminDto>> get(@PathVariable String id) {
+        DispositivoAdminDto result = dispSer.getById(id);
         return ResponseEntity.ok(
-            ResponseDto.<DispositivoDto>builder()
+            ResponseDto.<DispositivoAdminDto>builder()
                 .success(true)
                 .response(result)
                 .build()
@@ -45,10 +45,10 @@ public class DispositivoAdminController {
     }
  
     @PostMapping("/save")
-    public ResponseEntity<ResponseDto<DispositivoDto>> add(@RequestBody DispositivoDto dispositivoDto) {
-        DispositivoDto result = dispSer.save(dispositivoDto);
+    public ResponseEntity<ResponseDto<DispositivoAdminDto>> add(@RequestBody DispositivoAdminDto dispositivoDto) {
+        DispositivoAdminDto result = dispSer.save(dispositivoDto);
         return ResponseEntity.ok(
-            ResponseDto.<DispositivoDto>builder()
+            ResponseDto.<DispositivoAdminDto>builder()
                 .success(true)
                 .response(result)
                 .build()

@@ -3,7 +3,6 @@ package py.edu.facitec.pinv01_267.pinv01_267_ws.sevices;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,14 +13,16 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.model.User;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.repository.UserRepository;
 
 @Service
-public class UserService {
-
+public class UserService extends BaseService<User, UserDto>{
+    
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private ModelMapper modelMapper;
+
+    public UserService() {
+        super(User.class, UserDto.class);
+    }
 
     public UserDto save(UserDto userDto) {
         User user = convertToEntity(userDto);
@@ -44,11 +45,4 @@ public class UserService {
         return convertToDto(user);
     }
 
-    private UserDto convertToDto(User user) {
-        return modelMapper.map(user, UserDto.class);
-    }
-
-    private User convertToEntity(UserDto userDto) {
-        return modelMapper.map(userDto, User.class);
-    }
 }
