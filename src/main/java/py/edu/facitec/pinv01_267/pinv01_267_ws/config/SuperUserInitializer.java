@@ -30,7 +30,7 @@ public class SuperUserInitializer implements CommandLineRunner {
             rootUser.setUsername(rootUsername);
             rootUser.setPassword(passwordEncoder.encode(rootPassword));
             rootUser.setFullName("Super User");
-            rootUser.setRol("ROOT");
+            rootUser.setRole("ROOT");
 
             userRepository.save(rootUser);
             System.out.println("✅ ROOT user created from application.yml");

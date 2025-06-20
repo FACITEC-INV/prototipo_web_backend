@@ -25,7 +25,7 @@ public class JwtUtil {
         return Jwts.builder()
                 .subject(userDto.getUsername())
                 .claim("fullname", userDto.getFullName())
-                .claim("rol", userDto.getRol())
+                .claim("role", userDto.getRole())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + expirationMs))
                 .signWith(getSecretKey())

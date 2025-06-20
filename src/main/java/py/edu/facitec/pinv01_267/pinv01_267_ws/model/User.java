@@ -31,10 +31,10 @@ public class User implements UserDetails{
     @Column(nullable = false)
     private String password;
     @Column(nullable = false)
-    private String rol; // 'ROOT' o 'USER'
+    private String role; // 'ROOT' o 'USER'
     
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + rol));
+        return List.of(new SimpleGrantedAuthority("ROLE_" + role));
     }
 
     @Override
