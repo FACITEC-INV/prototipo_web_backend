@@ -16,7 +16,7 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.repository.DispositivoRepository;
 
 @Service
 @Transactional
-public class DispositovoAdminService extends BaseService<Dispositivo, DispositivoAdminDto>{
+public class DispositovoAdminService extends BaseService<Dispositivo, DispositivoAdminDto> {
 
   @Autowired
   private DispositivoRepository disRep;
@@ -42,6 +42,11 @@ public class DispositovoAdminService extends BaseService<Dispositivo, Dispositiv
     return convertToDto(getById(dispositivoId));
   }
 
+  public List<DispositivoAdminDto> findByTem(String term) {
+    List<Dispositivo> dispositivos = disRep.findByRioContainingIgnoreCase(term);
+    return dispositivos.stream().map(this::convertToDto).collect(Collectors.toList());
+  }
+
   Dispositivo getById(UUID dispositivoId) {
     Dispositivo disp = disRep.findById(dispositivoId)
         .orElseThrow(() -> new EntityNotFoundException("Dispositivo no registrado"));
@@ -53,5 +58,16 @@ public class DispositovoAdminService extends BaseService<Dispositivo, Dispositiv
   public void lastConectionUpdate(Dispositivo disp) {
     disp.setUltimaConexion(LocalDateTime.now());
     disRep.save(disp);
+  }
+
+  public Boolean delete(String id) {
+    try {
+      UUID dispositivoId = UUID.fromString(id);
+      disRep.deleteById(dispositivoId);
+      return true;
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new Error("Error al elimanar - id:" + id);
+    }
   }
 }

@@ -14,7 +14,7 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.repository.DispositivoRepository;
 
 @Service
 @Transactional
-public class DispositovoService extends BaseService<Dispositivo, DispositivoDto>{
+public class DispositovoService extends BaseService<Dispositivo, DispositivoDto> {
 
   @Autowired
   private DispositivoRepository disRep;
@@ -22,7 +22,6 @@ public class DispositovoService extends BaseService<Dispositivo, DispositivoDto>
   public DispositovoService() {
     super(Dispositivo.class, DispositivoDto.class);
   }
-
 
   public List<DispositivoDto> findAll() {
     List<Dispositivo> dispositivos = disRep.findAll();
