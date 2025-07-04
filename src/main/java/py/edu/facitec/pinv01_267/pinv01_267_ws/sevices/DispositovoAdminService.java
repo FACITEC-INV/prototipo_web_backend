@@ -58,7 +58,7 @@ public class DispositovoAdminService extends BaseService<Dispositivo, Dispositiv
     disRep.save(disp);
   }
 
-  public Boolean delete(String id) {
+  public boolean delete(String id) {
     try {
       UUID dispositivoId = UUID.fromString(id);
       disRep.deleteById(dispositivoId);

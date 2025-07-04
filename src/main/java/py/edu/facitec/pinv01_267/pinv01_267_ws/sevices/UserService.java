@@ -45,4 +45,26 @@ public class UserService extends BaseService<User, UserDto>{
         return convertToDto(user);
     }
 
+    public UserDto getById(Long id) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado - id: "+id));
+        return convertToDto(user);
+    }
+
+    public boolean delete(Long id) {
+        try {
+            userRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            throw new Error("Error al elimanar el usuario - id:" + id);
+        }
+    }
+
+    public List<UserDto> findByTem(String term) {
+        List<User> dispositivos = userRepository.searchByTerm(term);
+        return dispositivos.stream().map(this::convertToDto).collect(Collectors.toList());
+  }
+
+    
+
 }
