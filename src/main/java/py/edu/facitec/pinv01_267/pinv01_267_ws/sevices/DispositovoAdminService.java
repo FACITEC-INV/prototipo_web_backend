@@ -32,9 +32,7 @@ public class DispositovoAdminService extends BaseService<Dispositivo, Dispositiv
 
   public List<DispositivoAdminDto> findAll() {
     List<Dispositivo> dispositivos = disRep.findAll();
-    return dispositivos.stream()
-        .map(this::convertToDto)
-        .collect(Collectors.toList());
+    return dispositivos.stream().map(this::convertToDto).collect(Collectors.toList());
   }
 
   public DispositivoAdminDto getById(String id) {
@@ -66,8 +64,7 @@ public class DispositovoAdminService extends BaseService<Dispositivo, Dispositiv
       disRep.deleteById(dispositivoId);
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
-      throw new Error("Error al elimanar - id:" + id);
+      throw new Error("Error al elimanar dispositivo - id:" + id);
     }
   }
 }

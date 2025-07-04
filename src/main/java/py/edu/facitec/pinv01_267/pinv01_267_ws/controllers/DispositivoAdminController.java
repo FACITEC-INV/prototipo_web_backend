@@ -55,20 +55,12 @@ public class DispositivoAdminController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<ResponseDto<String>> delete(@PathVariable String id) {
-        try {
-            boolean resp = dispSer.delete(id);
-            return ResponseEntity.ok(
-                    ResponseDto.<String>builder()
-                            .success(resp)
-                            .response("Eliminado correctamente")
-                            .build());
-        } catch (Exception e) {
-            return ResponseEntity.ok(
-                    ResponseDto.<String>builder()
-                            .success(false)
-                            .response("No se pudo eliminar: " + e.getMessage())
-                            .build());
-        }
+        boolean resp = dispSer.delete(id);
+        return ResponseEntity.ok(
+            ResponseDto.<String>builder()
+                    .success(resp)
+                    .response("Eliminado correctamente")
+                    .build());
     }
 
     @GetMapping("/search/{term}")
