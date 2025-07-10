@@ -7,8 +7,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
-import py.edu.facitec.pinv01_267.pinv01_267_ws.model.Dispositivo;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
