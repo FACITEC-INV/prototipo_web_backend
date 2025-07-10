@@ -7,6 +7,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
@@ -15,7 +16,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "lecturas")
+@Table(
+  name = "lecturas",
+  indexes = {
+    @Index(name = "idx_fecha", columnList = "fecha"),
+    @Index(name = "idx_dispositivo", columnList = "dispositivo_id")
+  }
+)
 public class Lectura {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lecturas_seq")

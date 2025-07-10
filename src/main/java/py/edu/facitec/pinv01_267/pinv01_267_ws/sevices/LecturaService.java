@@ -1,7 +1,5 @@
 package py.edu.facitec.pinv01_267.pinv01_267_ws.sevices;
 
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,16 +59,16 @@ public class LecturaService extends BaseService<Lectura, LecturaDto>{
     dispSer.lastConectionUpdate(disp);
   }
 
-   public List<PromedioLecturaDto> obtenerPromedios(LocalDateTime inicio, LocalDateTime fin, UUID dispositivoId) {
-        long dias = ChronoUnit.DAYS.between(inicio.toLocalDate(), fin.toLocalDate());
-
-        if (dias <= 1) {
-            return lecturaRepository.promedioPorHora(inicio, fin, dispositivoId);
-        } else if (dias <= 31) {
-            return lecturaRepository.promedioPorDia(inicio, fin, dispositivoId);
-        } else {
-            return lecturaRepository.promedioPorMes(inicio, fin, dispositivoId);
-        }
+  public List<PromedioLecturaDto> getAverages(Integer year, Integer month, Integer day, UUID dispositivoId) {
+    if (year != null && month != null && day != null) {
+        return lecturaRepository.findAverageByHour(year, month, day, dispositivoId);
+    } else if (year != null && month != null) {
+        return lecturaRepository.findAverageByDay(year, month, dispositivoId);
+    } else if (year != null) {
+        return lecturaRepository.findAverageByMonth(year, dispositivoId);
+    } else {
+        throw new IllegalArgumentException("Debe enviar por lo menos el año, mes y día son opcionales");
     }
+  }
 
 }
