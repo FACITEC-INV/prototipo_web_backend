@@ -1,7 +1,6 @@
 package py.edu.facitec.pinv01_267.pinv01_267_ws.controllers;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,30 +30,28 @@ public class LecturaController {
         ResponseDto.<String>builder()
             .success(true)
             .response("Guardado correcto")
-            .build()
-    );
+            .build());
   }
 
   /**
    * @param dispositivoId UUID of the device
-   * @param year     Year of the readings (required)
-   * @param month    Month of the readings (optional, required if day is provided)
-   * @param day      Day of the readings (optional)
+   * @param year          Year of the readings (required)
+   * @param month         Month of the readings (optional, required if day is
+   *                      provided)
+   * @param day           Day of the readings (optional)
    * @return List of average readings grouped by the specified granularity
    */
   @GetMapping("/promedios")
   public ResponseDto<List<PromedioLecturaDto>> getAverages(
-    @RequestParam UUID dispositivoId,
-    @RequestParam Integer year,
-    @RequestParam(required = false) Integer month,
-    @RequestParam(required = false) Integer day
-  ) {
-    List<PromedioLecturaDto> result = lecServ.getAverages(year, month, day, dispositivoId);
+      @RequestParam String ubicacion,
+      @RequestParam Integer year,
+      @RequestParam(required = false) Integer month,
+      @RequestParam(required = false) Integer day) {
+    List<PromedioLecturaDto> result = lecServ.getAverages(year, month, day, ubicacion);
     return ResponseDto.<List<PromedioLecturaDto>>builder()
-      .success(true)
-      .response(result)
-      .build();
+        .success(true)
+        .response(result)
+        .build();
   }
-
 
 }

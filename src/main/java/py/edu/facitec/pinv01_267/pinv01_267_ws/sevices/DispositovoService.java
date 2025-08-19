@@ -30,10 +30,4 @@ public class DispositovoService extends BaseService<Dispositivo, DispositivoDto>
         .collect(Collectors.toList());
   }
 
-  Dispositivo getByUbicacion(String ubicacion) {
-    Dispositivo disp = disRep.findFirstByUbicacion(ubicacion)
-        .orElseThrow(() -> new EntityNotFoundException("Dispositivo no registrado"));
-    return disp;
-  }
-
 }
