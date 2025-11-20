@@ -17,7 +17,7 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.model.Lectura;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.repository.LecturaRepository;
 
 @Service
-public class LecturaService extends BaseService<Lectura, LecturaDto>{
+public class LecturaService extends BaseService<Lectura, LecturaDto> {
 
   @PersistenceContext
   EntityManager entity;
@@ -42,7 +42,7 @@ public class LecturaService extends BaseService<Lectura, LecturaDto>{
     Dispositivo disp = dispSer.getById(dispositivoId);
 
     int BATCH_SIZE = 50;
-    int iteration = 0; 
+    int iteration = 0;
     for (LecturaDto lecDto : lecReq.getLecturas()) {
       Lectura lec = convertToEntity(lecDto);
       lec.setDispositivo(disp);
@@ -59,15 +59,16 @@ public class LecturaService extends BaseService<Lectura, LecturaDto>{
     dispSer.lastConectionUpdate(disp);
   }
 
-  public List<PromedioLecturaDto> getAverages(Integer year, Integer month, Integer day, UUID dispositivoId) {
+  public List<PromedioLecturaDto> getAverages(Integer year, Integer month, Integer day, String ubicacion) {
+    Dispositivo dispositivo = dispSer.getByUbicacion(ubicacion);
     if (year != null && month != null && day != null) {
-        return lecturaRepository.findAverageByHour(year, month, day, dispositivoId);
+      return lecturaRepository.findAverageByHour(year, month, day, dispositivo.getId());
     } else if (year != null && month != null) {
-        return lecturaRepository.findAverageByDay(year, month, dispositivoId);
+      return lecturaRepository.findAverageByDay(year, month, dispositivo.getId());
     } else if (year != null) {
-        return lecturaRepository.findAverageByMonth(year, dispositivoId);
+      return lecturaRepository.findAverageByMonth(year, dispositivo.getId());
     } else {
-        throw new IllegalArgumentException("Debe enviar por lo menos el año, mes y día son opcionales");
+      throw new IllegalArgumentException("Debe enviar por lo menos el año, mes y día son opcionales");
     }
   }
 

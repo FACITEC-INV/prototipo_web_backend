@@ -67,4 +67,10 @@ public class DispositovoAdminService extends BaseService<Dispositivo, Dispositiv
       throw new Error("Error al elimanar dispositivo - id:" + id);
     }
   }
+
+  Dispositivo getByUbicacion(String ubicacion) {
+    Dispositivo disp = disRep.findFirstByUbicacion(ubicacion)
+        .orElseThrow(() -> new EntityNotFoundException("Dispositivo no registrado"));
+    return disp;
+  }
 }
