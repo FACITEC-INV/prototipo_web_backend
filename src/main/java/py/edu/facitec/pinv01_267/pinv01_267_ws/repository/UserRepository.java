@@ -13,11 +13,9 @@ public interface UserRepository extends JpaRepository<User, Long>{
     Optional<User> findByUsername(String username);
 
     /**
-     * Buscar los dispositivos por un término de búsqueda.
-     * Compara el termino buscado con el nombre del usuario.
-     * 
+     * Buscar los usuarios por un término de búsqueda.
      * @param term
-     * @return {User} Lista de dispositivos.
+     * @return {User} Lista de usuarios.
      */
     @Query("SELECT u FROM User u WHERE LOWER(u.fullName) LIKE LOWER(CONCAT('%', :term, '%')) OR LOWER(u.username) LIKE LOWER(CONCAT('%', :term, '%'))")
     List<User> searchByTerm(@Param("term") String term);
