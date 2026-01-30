@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.DispositivoDto;
-import py.edu.facitec.pinv01_267.pinv01_267_ws.exception.EntityNotFoundException;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.model.Dispositivo;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.repository.DispositivoRepository;
 
