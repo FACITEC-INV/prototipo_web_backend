@@ -1,14 +1,10 @@
 package py.edu.facitec.pinv01_267.pinv01_267_ws.sevices;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.SuscripcionDto;
-import py.edu.facitec.pinv01_267.pinv01_267_ws.exception.EntityNotFoundException;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.model.Suscripcion;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.repository.SuscripcionRepository;
 
@@ -27,6 +23,5 @@ public class SuscripcionService extends BaseService<Suscripcion, SuscripcionDto>
     Suscripcion saved = susRep.save(convertToEntity(suscripcionDto));
     return convertToDto(saved);
   }
-
 
 }
