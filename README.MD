@@ -1,16 +1,15 @@
+![banner](https://awesomescreenshot.s3.amazonaws.com/image/3964926/58607340-8339b7c9a0f1b71d9d48f2d893244d4d.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSCJQ2NM3XLFPVKA%2F20260204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260204T171647Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Signature=36f53397040bacffda3b31b9882fda6843b66b2e95536305df2123ea6a721682)
+
 # Backend del Sistema de Monitoreo de Calidad de Agua (pinv01_267_ws)
 
 Este repositorio contiene el código fuente para el servicio backend del Prototipo de Sistema de Monitoreo y Alerta Temprana de la Calidad del Agua, desarrollado en el marco de un proyecto de investigación de FACITEC.
 
-## Sobre el Proyecto de Investigación (PINV01-267)
+## Sobre el Proyecto
 
-Este software es un componente clave del proyecto de investigación **"Desarrollo de un sistema informático para el monitoreo de la calidad del agua de los cuerpos hídricos utilizando los datos de una red de sensores inalámbricos" (PINV01-267)**.
-
-El proyecto es una iniciativa de la **Facultad de Ciencias y Tecnología (FACITEC)**, con el desarrollo de software realizándose en la **Universidad Nacional de Canindeyú (UNICAN)**, y es financiado por el **Consejo Nacional de Ciencia y Tecnología (CONACYT)** de Paraguay a través de su programa PROCIENCIA.
-
-El objetivo general es construir un sistema informático integral para el monitoreo de la calidad del agua. Esto incluye la selección y despliegue de sensores en ríos clave (Piratiy, Carapá, y Curuguaty'y), el desarrollo de una solución de software para la recolección, procesamiento y análisis de datos, y la validación de estos datos mediante pruebas de laboratorio.
-
-El sistema final busca ser una herramienta de acceso abierto para la comunidad científica y el público en general.
+- **Título del Proyecto:** PINV01-267: Sistema de red de sensores inalámbricos para el monitoreo de la calidad del agua en cauces hídricos del departamento del Canindeyú.
+- **Institución:** FACITEC (Facultad de Ciencias y Tecnología - Universidad Nacional de Canindeyú).
+- **Financiamiento:** CONACYT (Consejo Nacional de Ciencia y Tecnología).
+- **Objetivo:** Desarrollar un sistema informático para el monitoreo de la calidad del agua de cauces hídricos utilizando datos obtenidos a través una red de sensores inalámbricos
 
 ## Arquitectura y Características del Backend
 
