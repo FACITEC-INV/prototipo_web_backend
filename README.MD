@@ -1,4 +1,4 @@
-![banner](https://awesomescreenshot.s3.amazonaws.com/image/3964926/58607340-8339b7c9a0f1b71d9d48f2d893244d4d.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSCJQ2NM3XLFPVKA%2F20260204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260204T171647Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Signature=36f53397040bacffda3b31b9882fda6843b66b2e95536305df2123ea6a721682)
+![banner](https://uccc8e4b245aaeff0f682bc9b0ff.previews.dropboxusercontent.com/p/thumb/AC4YQ87P-3mtvTgCWc0YrAdmKdjLSL4wqXUo9flTrku5SHqGuSxZIYryELd3KRCu3dhqUSnYKupdY1ncid_rqH9faIQatwT7gqsempNWH6KdKfn_3BtW1tEIXrrPSjXyCEOVYmtMJwdClP5u0jBCrPqZDpXXb3sDl_8rVEvIDED-beQAJ8Wj6KMkR3WzaNJFjsaohCk4NfK6VCBQghrmfYDD7kdL4-SHtjaZgQBRSBNYgNeexbkFJPFXygw9N8KRnF4GsgHTdopuARIKJSWi0G9ES3BCg8H1TwRkTSifynprOumgFoJYCLQmbRmfLrNCOPGDQSZqXyU8aITF79NNbB3dE0B8JKrOkoquHTeeferOaGN6H86s0EO5s_9CbYelrvI/p.png?is_prewarmed=true)
 
 # Backend del Sistema de Monitoreo de Calidad de Agua (pinv01_267_ws)
 
