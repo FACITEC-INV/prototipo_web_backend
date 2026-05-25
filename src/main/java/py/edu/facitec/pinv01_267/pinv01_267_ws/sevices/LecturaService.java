@@ -22,7 +22,7 @@ public class LecturaService extends BaseService<Lectura, LecturaDto> {
   @PersistenceContext
   EntityManager entity;
   @Autowired
-  private DispositovoAdminService dispSer;
+  private DispositivoAdminService dispSer;
   @Autowired
   private LecturaRepository lecturaRepository;
 

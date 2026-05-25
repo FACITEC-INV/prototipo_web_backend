@@ -25,12 +25,17 @@ public class LecturaController {
 
   @PostMapping("/add")
   public ResponseEntity<ResponseDto<String>> add(@RequestBody LecturasReveicedDto lecReq) {
-    lecServ.addService(lecReq);
-    return ResponseEntity.ok(
-        ResponseDto.<String>builder()
-            .success(true)
-            .response("Guardado correcto")
-            .build());
+    try {
+      lecServ.addService(lecReq);
+      return ResponseEntity.ok(
+          ResponseDto.<String>builder()
+              .success(true)
+              .response("Guardado correcto")
+              .build());
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 
   /**

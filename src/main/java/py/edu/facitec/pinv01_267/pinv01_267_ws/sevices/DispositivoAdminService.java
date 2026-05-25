@@ -16,12 +16,12 @@ import py.edu.facitec.pinv01_267.pinv01_267_ws.repository.DispositivoRepository;
 
 @Service
 @Transactional
-public class DispositovoAdminService extends BaseService<Dispositivo, DispositivoAdminDto> {
+public class DispositivoAdminService extends BaseService<Dispositivo, DispositivoAdminDto> {
 
   @Autowired
   private DispositivoRepository disRep;
 
-  public DispositovoAdminService() {
+  public DispositivoAdminService() {
     super(Dispositivo.class, DispositivoAdminDto.class);
   }
 

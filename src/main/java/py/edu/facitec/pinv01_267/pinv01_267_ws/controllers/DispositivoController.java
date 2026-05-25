@@ -10,24 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.DispositivoDto;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.ResponseDto;
-import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.DispositovoService;
+import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.DispositivoService;
 
 @RestController
 @RequestMapping(path = "/api/dispositivos")
 public class DispositivoController {
 
-    @Autowired
-    private DispositovoService dispSer;
+  @Autowired
+  private DispositivoService dispSer;
 
-    @GetMapping("/all")
-    public ResponseEntity<ResponseDto<List<DispositivoDto>>> getAll() {
-        List<DispositivoDto> result = dispSer.findAll();
-        return ResponseEntity.ok(
-            ResponseDto.<List<DispositivoDto>>builder()
-                .success(true)
-                .response(result)
-                .build()
-        );
-    }
+  @GetMapping("/all")
+  public ResponseEntity<ResponseDto<List<DispositivoDto>>> getAll() {
+    List<DispositivoDto> result = dispSer.findAll();
+    return ResponseEntity.ok(
+        ResponseDto.<List<DispositivoDto>>builder()
+            .success(true)
+            .response(result)
+            .build());
+  }
 
 }

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.DispositivoAdminDto;
 import py.edu.facitec.pinv01_267.pinv01_267_ws.dto.ResponseDto;
-import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.DispositovoAdminService;
+import py.edu.facitec.pinv01_267.pinv01_267_ws.sevices.DispositivoAdminService;
 
 @RestController
 @RequestMapping(path = "/api/admin/dispositivos")
 public class DispositivoAdminController {
 
     @Autowired
-    private DispositovoAdminService dispSer;
+    private DispositivoAdminService dispSer;
 
     @GetMapping("/all")
     public ResponseEntity<ResponseDto<List<DispositivoAdminDto>>> getAll() {
