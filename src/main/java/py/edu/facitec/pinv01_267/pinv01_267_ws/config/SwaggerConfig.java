@@ -37,7 +37,7 @@ public class SwaggerConfig {
             path.equals("/api/auth/login") ||
             path.equals("/api/suscripciones/save") ||
             path.equals("/api/lecturas/add") ||
-            path.equals("/api/sync/")
+            path.startsWith("/api/sync/")
           );
       }
       if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null) {
