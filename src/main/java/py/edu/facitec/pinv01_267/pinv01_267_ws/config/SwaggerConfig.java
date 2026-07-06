@@ -36,14 +36,17 @@ public class SwaggerConfig {
         openApi.getPaths().keySet().removeIf(path -> path.startsWith("/api/admin/") ||
             path.equals("/api/auth/login") ||
             path.equals("/api/suscripciones/save") ||
-            path.equals("/api/lecturas/add"));
+            path.equals("/api/lecturas/add") ||
+            path.equals("/api/sync/")
+          );
       }
       if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null) {
         openApi.getComponents().getSchemas().keySet()
             .removeIf(schemaName -> !schemaName.equals("ResponseDtoListPromedioLecturaDto") &&
                 !schemaName.equals("PromedioLecturaDto") &&
                 !schemaName.equals("ResponseDtoListDispositivoDto") &&
-                !schemaName.equals("DispositivoDto"));
+                !schemaName.equals("DispositivoDto")
+            );
       }
     };
   }
